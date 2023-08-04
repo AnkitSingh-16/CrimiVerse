@@ -336,7 +336,7 @@ class Criminal:
     # fetch data
 
     def fetch_data(self):
-        conn=mysql.connector.connect(host='localhost', username='root',password='Ankit@162002', database='managment')
+        conn=mysql.connector.connect(host='localhost', username='root',password='*******', database='managment')
         my_cursor=conn.cursor()
         my_cursor.execute('select * from criminal')
         data=my_cursor.fetchall()
@@ -378,7 +378,7 @@ class Criminal:
             try:
                 update=messagebox.askyesno('update', "Are you sure you want to update this record?")
                 if update>0:
-                    conn=mysql.connector.connect(host='localhost', username='root',password='Ankit@162002', database='managment')
+                    conn=mysql.connector.connect(host='localhost', username='root',password='*******', database='managment')
                     my_cursor=conn.cursor() 
                     my_cursor.execute('update criminal set  Criminal_no=%s, Criminal_name=%s, Nick_name=%s, arrest_date=%s, dateOfcrime=%s, address=%s, age=%s,  occupation=%s, BirthMark=%s, crimeType=%s, fatherName=%s, gender=%s, wanted=%s where Case_id=%s',(
                                                                                                                 self.var_criminal_no.get(),
@@ -415,7 +415,7 @@ class Criminal:
             try:
                 delete=messagebox.askyesno('Delete', "Are you sure you want to Delete this record?")
                 if delete>0:
-                    conn=mysql.connector.connect(host='localhost', username='root',password='Ankit@162002', database='managment')
+                    conn=mysql.connector.connect(host='localhost', username='root',password='*******', database='managment')
                     my_cursor=conn.cursor() 
                     sql="DELETE FROM criminal WHERE Case_id= %s "
                     value=(self.var_case_id.get(),)
@@ -456,7 +456,7 @@ class Criminal:
             messagebox.showerror('Error','All fields are required') 
         else:
             try:
-                conn=mysql.connector.connect(host='localhost', username='root',password='Ankit@162002', database='managment')
+                conn=mysql.connector.connect(host='localhost', username='root',password='*******', database='managment')
                 my_cursor=conn.cursor()
                 my_cursor.execute('select * from criminal where '+str(self.var_com_search.get())+" LIKE'%"+str(self.var_search.get()+"%'"))
                 rows=my_cursor.fetchall()
